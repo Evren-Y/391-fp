@@ -1,5 +1,8 @@
+/*Header component - Ethan Chang
+Title of our Project with some styled components*/
 import styled from "styled-components";
 
+/*Styled header, h1 and p tage*/
 const StyledHeader = styled.header`
   background-color: #2c2c2c;
   padding: 1rem 1rem;
@@ -21,6 +24,7 @@ const Subtitle = styled.p`
   margin-top: 0;
 `;
 
+/* function wrapping the component with the styled tags */
 export default function Header() {
   return (
     <StyledHeader>

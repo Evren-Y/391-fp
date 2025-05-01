@@ -1,8 +1,12 @@
+/* Search Bar Component - Ethan Chang
+Search bar that allows users to search giveaways by platform */
+
 "use client";
 
 import { useState } from "react";
 import styled from "styled-components";
 
+/* Styled form, input, button with hover */
 const StyledContainer = styled.form`
   display: flex;
   justify-content: center;
@@ -41,10 +45,11 @@ const StyledButton = styled.button`
   }
 `;
 
+/* Function wrapping styled components with search bar component */
 export default function SearchBar({ onSearch }: { onSearch: (platform: string) => void }) {
   const [input, setInput] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) { //handles input into search bar while trimming white spaces
     e.preventDefault();
     onSearch(input.trim());
   }
@@ -53,9 +58,9 @@ export default function SearchBar({ onSearch }: { onSearch: (platform: string) =
     <StyledContainer onSubmit={handleSubmit}>
       <StyledInput
         type="text"
-        placeholder="Enter platform (e.g. steam, pc, epic-games-store)"
+        placeholder="Enter platform (e.g. steam, pc, etc.)"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => setInput(e.target.value)} //input change for useState hook
       />
       <StyledButton type="submit">Search</StyledButton>
     </StyledContainer>
